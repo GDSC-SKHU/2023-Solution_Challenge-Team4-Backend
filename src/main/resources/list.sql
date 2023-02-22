@@ -1,0 +1,1 @@
+show * from hugme.list;
