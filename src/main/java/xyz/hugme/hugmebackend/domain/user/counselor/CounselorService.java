@@ -36,7 +36,7 @@ public class CounselorService {
 
 
     //성별과 분야로 상담사 조회하기
-    public List<Counselor> findByGenderAndFields(Gender gender,Set<Field> fields){
+    public List<Counselor> findByGenderAndFields(@RequestParam Gender gender,@RequestParam  Set<Field> fields){
         return counselorRepository.findByGenderAndFields(gender,fields);
 
     }

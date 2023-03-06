@@ -16,8 +16,7 @@ public interface CounselorRepository extends JpaRepository<Counselor, Long> {
     Optional<Counselor> findByIdFetchReviews(@Param("id") Long id);
 
     //다중 검색 메소드
-   //List<Counselor> findByGenderAndFields(Gender gender, Set<Field> fields);
-   @Query("SELECT c.gender, c.fields FROM Counselor c")
+   @Query("SELECT c.gender, c.fields FROM Counselor c WHERE c.gender = :gender AND c.fields = :fields")
    List<Counselor> findByGenderAndFields(@Param("gender")Gender gender, @Param("fields")Set<Field> fields);
 
 
