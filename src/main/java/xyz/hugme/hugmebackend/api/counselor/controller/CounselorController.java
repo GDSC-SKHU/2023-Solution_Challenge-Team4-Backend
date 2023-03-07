@@ -39,8 +39,9 @@ public class CounselorController {
     }
     //성별과 분야로 상담사 검색
     @GetMapping("/counselors/{gender}/{fields}")
-    public RspsTemplate<CounselorListDto> getCounselor(@PathVariable Gender gender, @PathVariable Set<Field> fields){
-        RspsTemplate<CounselorListDto> rspsTemplate = apiCounselorService.findByGenderAndFields(gender, fields);
+    public RspsTemplate<CounselorListDto> getCounselor(@PathVariable Gender gender, @PathVariable List<Field> fields){
+        Set<Field> fieldSet = new HashSet<>(fields);
+        RspsTemplate<CounselorListDto> rspsTemplate = apiCounselorService.findByGenderAndFields(gender, fieldSet);
         return rspsTemplate;
     }
 
